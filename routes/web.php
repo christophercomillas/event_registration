@@ -20,8 +20,8 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('test');
 });
-
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
