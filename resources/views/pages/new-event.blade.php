@@ -28,7 +28,16 @@
                                     <div class="form-group row">
                                             <label class="col-sm-12 col-md-2 col-form-label">Description</label>
                                             <div class="col-sm-12 col-md-12 col-lg-8">
-                                                <textarea class="form-control"></textarea>
+                                                <div class="adjoined-bottom">
+                                                    <div class="grid-container">
+                                                        <div class="grid-width-100">
+                                                            <div id="editor">
+                                                                <h1>Hello world!</h1>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     <div class="form-group row">
@@ -50,3 +59,13 @@
     </div>
 </div>
 @stop
+
+
+@push('extra-css')
+
+    
+@endpush
+
+@push('extra-js')
+
+@endpush

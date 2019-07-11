@@ -47,9 +47,9 @@
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/waves.min.js') }}"></script>
         <script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
-        <script src="{{ asset('js/jquery.flot.js') }}"></script>
+        {{-- <script src="{{ asset('js/jquery.flot.js') }}"></script>
         <script src="{{ asset('js/jquery.flot.categories.js') }}"></script>
-        <script src="{{ asset('js/jquery.flot.tooltip.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.flot.tooltip.min.js') }}"></script> --}}
         <script src="{{ asset('js/chartist.js') }}"></script>
         <script src="{{ asset('js/chartist.js') }}"></script>
         <script src="{{ asset('js/amchart/amcharts.js') }}"></script>
@@ -57,5 +57,7 @@
         <script src="{{ asset('js/light.js') }}"></script>
         <script src="{{ asset('js/pcoded.min.js') }}"></script>
         <script src="{{ asset('js/vertical-layout.min.js') }}"></script>
-        <script src="{{ asset('js/custom-dashboard.min.js') }}"></script>
+        {{-- <script src="{{ asset('js/custom-dashboard.min.js') }}"></script> --}}
         <script src="{{ asset('js/script.min.js') }}"></script>
+
+        @stack('extra-js')

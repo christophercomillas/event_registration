@@ -19,3 +19,5 @@
     <link rel="stylesheet" href="{{ asset('css/chartist.css') }}" type="text/css" media="all">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/widget.css') }}">
+    
+    @stack('extra-css')
