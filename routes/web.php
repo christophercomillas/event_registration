@@ -20,7 +20,14 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('test');
 });
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/test', function () {
+    return view('test');
+});
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/new-event', 'EventController@index')->name('new-event');
 
 Auth::routes();
 

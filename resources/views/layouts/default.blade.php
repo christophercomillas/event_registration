@@ -15,7 +15,7 @@
                     <div class="pcoded-wrapper">
                         @include('includes.menu')
                         <div class="pcoded-content">
-                            @include('includes.content')
+                            @yield('content')
                         </div>
                         <div id="styleSelector"></div>
                     </div>
