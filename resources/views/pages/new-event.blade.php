@@ -28,16 +28,7 @@
                                     <div class="form-group row">
                                             <label class="col-sm-12 col-md-2 col-form-label">Description</label>
                                             <div class="col-sm-12 col-md-12 col-lg-8">
-                                                <div class="adjoined-bottom">
-                                                    <div class="grid-container">
-                                                        <div class="grid-width-100">
-                                                            <div id="editor">
-                                                                <h1>Hello world!</h1>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <textarea class="form-control" id="summary-ckeditor" name="summary-ckeditor"></textarea>
                                             </div>
                                         </div>
                                     <div class="form-group row">
@@ -67,5 +58,10 @@
 @endpush
 
 @push('extra-js')
+<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+    //CKEDITOR.config.removeButtons = 'Underline,JustifyCenter';
 
+</script>
 @endpush

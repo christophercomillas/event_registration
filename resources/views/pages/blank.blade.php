@@ -1,0 +1,16 @@
+@extends('layouts.default')
+@section('title', 'Event Registration')
+@section('content')   
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@stop

@@ -21,8 +21,8 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/test', function () {
-    return view('test');
+Route::get('/blank', function () {
+    return view('pages.blank');
 });
 
 //Route::get('/home', 'HomeController@index')->name('home');
