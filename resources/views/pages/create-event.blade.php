@@ -9,10 +9,11 @@
                     <div class="col-md-12 col-xl-12">
                         <div class="card sale-card">
                             <div class="card-header">
-                                <h5>New Event</h5>
+                                <h5>Create Event</h5>
                             </div>
                             <div class="card-block">
-                                <form id="main" method="post" action="/" novalidate="">
+                                <form id="main" method="post" action="{{ route('store-event') }}" novalidate="" id="new-event">
+                                    @csrf
                                     <div class="form-group row">
                                         <label class="col-sm-12 col-md-2 col-form-label">Name</label>
                                         <div class="col-sm-12 col-md-12 col-lg-8">
@@ -28,7 +29,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-12 col-md-2 col-form-label">Description</label>
                                         <div class="col-sm-12 col-md-12 col-lg-8">
-                                            <textarea class="form-control" id="summary-ckeditor" name="summary-ckeditor"></textarea>
+                                            <textarea class="form-control" id="EventDescription" name="EventDescription"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -45,23 +46,24 @@
                                             <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
                                                 <i class="fa fa-calendar"></i>&nbsp;
                                                 <span></span> <i class="fa fa-caret-down"></i>
+                                                <input type="hidden" value="" name="EventDateRange" id="EventDateRange">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-12 col-md-2 col-form-label">Registration Start</label>
                                         <div class="col-sm-12 col-md-12 col-lg-3">
-                                            <input type="datetime-local" class="form-control" />
+                                            <input type="datetime-local" class="form-control" id="EventRegistrationStart" name="EventRegistrationStart"/>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-12 col-md-2 col-form-label">Registration End</label>
                                         <div class="col-sm-12 col-md-12 col-lg-3">
-                                            <input type="datetime-local" class="form-control" />
+                                            <input type="datetime-local" class="form-control" id="EventRegistrationEnd" name="EventRegistrationEnd" />
                                         </div>
                                     </div>
                                     <div class="col text-center">                                       
-                                        <button class="btn btn-primary">Submit</button>                                
+                                        <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i>Submit</button>                                
                                     </div>
                                 </form>
                             </div>
@@ -84,12 +86,12 @@
 
 @push('extra-js')
     <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('js/moment.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
-    <script src="{{ asset('js/moment.min.js') }}"></script>
     <script src="{{ asset('js/daterangepicker.min.js') }}"></script>
 <script>
-    CKEDITOR.replace( 'summary-ckeditor' );
+    CKEDITOR.replace( 'EventDescription' );
     //CKEDITOR.config.removeButtons = 'Underline,JustifyCenter';
 
         $(function() {
@@ -99,6 +101,7 @@
 
             function cb(start, end) {
                 $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                $('#reportrange #EventDateRange').val(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
             }
 
             $('#reportrange').daterangepicker({

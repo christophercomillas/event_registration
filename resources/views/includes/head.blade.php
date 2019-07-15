@@ -1,3 +1,5 @@
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <title>@yield('title')</title>
     <!--[if lt IE 10]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

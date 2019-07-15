@@ -27,7 +27,8 @@ Route::get('/blank', function () {
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/new-event', 'EventController@index')->name('new-event');
+Route::get('/create-event', 'EventController@create')->name('create-event');
+Route::post('/store-event', 'EventController@store')->name('store-event');
 
 Auth::routes();
 
