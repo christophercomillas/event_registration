@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -35,8 +37,27 @@ class EventController extends Controller
             'EventDescription'          =>  'Event Description',
             'EventType'                 =>  'Event Type',
             'EventDateStart'            =>  'Event Date Start',
-            'EventDateEnd'              =>  'Event Date End'
+            'EventDateEnd'              =>  'Event Date End',
+            'EventRegistrationStart'    =>  'Event Registration Start',
+            'EventRegistrationEnd'      =>  'Event Registration End'
         );
+
+        $EventRange = explode('-',$request->EventDateRange);
+        $EventDateStart = $EventRange[0];
+        $EventDateEnd = $EventRange[1];
+
+        //echo $EventDateStart->toDateString();   
+        $EventDateStart = Carbon::parse($EventDateStart)->format('Y-m-d');     
+
+        $EventRegStart = explode("T",$request->EventRegistrationStart);
+
+        $EventRegistrationStartDate = "";
+        $EventRegistrationStartTime = "";
+
+        $EventRegistrationEndDate = "";
+        $EventRegistrationEndTime = "";       
+
+        die();
 
         $validator = Validator::make($request->all(), [
             'EventName'     =>  'required',
@@ -53,5 +74,7 @@ class EventController extends Controller
         ]);
 
         $validator->setAttributeNames($niceNames); 
+
+
     }
 }
