@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Rules\Dates;
 use Validator;
 use Carbon\Carbon;
+
 
 class EventController extends Controller
 {
@@ -55,25 +57,40 @@ class EventController extends Controller
         $EventRegistrationStartTime = "";
 
         $EventRegistrationEndDate = "";
-        $EventRegistrationEndTime = "";       
+        $EventRegistrationEndTime = "";      
 
-        die();
+
 
         $validator = Validator::make($request->all(), [
-            'EventName'     =>  'required',
-            'EventLocation' =>  'required',
-            'EventType'     =>  'required',
-            'checkdate'     =>  'required|date',
-            'checktype'     =>  'required',
-            'accountno'     =>  'required',
-            'accountname'   =>  'required',
-            'bankid'        =>  'required|integer',
-            'checkamt'      =>  'required|regex:/^[0-9]{1,3}(,[0-9]{3})*(\.[0-9]+)*$/',
-            'ccategory'     =>  'required',
-            'currency'      =>  'required',
+            'EventName'     => ['required','date', new Dates],
+            // 'EventName'     =>  'required',
+            'EventLocation' =>  'required|date'
+            // 'EventType'     =>  'required',
+            // 'checkdate'     =>  'required|date',
+            // 'checktype'     =>  'required',
+            // 'accountno'     =>  'required',
+            // 'accountname'   =>  'required',
+            // 'bankid'        =>  'required|integer',
+            // 'checkamt'      =>  'required|regex:/^[0-9]{1,3}(,[0-9]{3})*(\.[0-9]+)*$/',
+            // 'ccategory'     =>  'required',
+            // 'currency'      =>  'required',
         ]);
 
+        dd($validator->errors());
+
+        // foreach ($validator->errors() as $error => $value)
+        // {
+        //     echo $value.'xxx';
+        // }
+
+        die();
         $validator->setAttributeNames($niceNames); 
+
+        // if ($validator->fails()) {
+        //     return redirect('/client/addusers')
+        //                     ->withErrors($validator)
+        //                     ->withInput();
+        //  }
 
 
     }
